@@ -5,6 +5,8 @@ from bot.config import Config
 from bot.wallet import Wallet
 
 class Menu(Config):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def display_logo(self):
         print("\033c", end="")

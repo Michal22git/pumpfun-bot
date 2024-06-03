@@ -5,6 +5,8 @@ from bot.config import Config
 
 
 class Wallet(Config):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def fetch_tokens(self):
         account_info = requests.post(
@@ -94,8 +96,3 @@ class Wallet(Config):
             self.print_token_prices(token_prices, tokens_with_amounts)
         else:
             print("No tokens found...")
-
-
-if __name__ == '__main__':
-    wallet = Wallet()
-    wallet.start()
