@@ -45,7 +45,7 @@ class Config(object):
 
     @property
     def public_key(self):
-        return self.private_key.pubkey()
+        return str(self.private_key.pubkey())
 
     @property
     def client(self):

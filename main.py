@@ -2,7 +2,7 @@ from InquirerPy import inquirer
 from pyfiglet import Figlet
 
 from bot.config import Config
-
+from bot.wallet import Wallet
 
 class Menu(Config):
 
@@ -16,7 +16,7 @@ class Menu(Config):
             message="Select option:",
             choices=[
                 "PumpFun Sniper",
-                "Manage Wallet",
+                "Wallet",
                 "Configuration",
                 "Exit"
             ]
@@ -24,8 +24,10 @@ class Menu(Config):
 
         if choices == "PumpFun Sniper":
             pass
-        elif choices == "Manage Wallet":
-            pass
+        elif choices == "Wallet":
+            Wallet().start()
+            input("")
+            return self.menu()
         elif choices == "Configuration":
             print("Private Key: ", self.PRIVATE_KEY)
             print("RPC: ", self.RPC)
